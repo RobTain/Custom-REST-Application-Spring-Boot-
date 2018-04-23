@@ -33,9 +33,9 @@ public class ProductController {
 	}
 	
 	// Get Custom Entities by Keyword
-//	@RequestMapping(value="/products/search/{value}", method = RequestMethod.GET) 
-//		public ResponseEntity<List<Product>> findKeyword(@PathVariable("value") String string) {
-//			return new ResponseEntity<List<Product>>(productService.search(string), HttpStatus.OK);
-//		}
-//	
+	@RequestMapping(value="/products/search/{value}", method = RequestMethod.GET) 
+		public ResponseEntity<List<Product>> findKeyword(@PathVariable("value") String string) {
+			return new ResponseEntity<List<Product>>(productService.search(string), HttpStatus.OK);
+		}
+	
 }
