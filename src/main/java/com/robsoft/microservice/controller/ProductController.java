@@ -34,16 +34,29 @@ public class ProductController {
 	}
 
 	// Get Custom Entities by Keyword
-	@RequestMapping(value = "/products/search/{value}", method = RequestMethod.GET)
+	@RequestMapping(value = "/products/search/name/{value}", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> findKeyword(@PathVariable("value") String string) {
 		return new ResponseEntity<List<Product>>(productService.search(string), HttpStatus.OK);
 	}
 
-	
 	// Create Entity
 	@RequestMapping(value = "/products", method = RequestMethod.POST) 
 	public ResponseEntity<Product> create(@RequestBody Product product) {
 		return new ResponseEntity<Product>(productService.save(product), HttpStatus.CREATED);
+	}
+
+	
+	// Update Entity
+	@RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Product> update(@PathVariable("id") int id, @RequestBody Product product) {
+			Product temp = productService.findById(id).get();
+			temp.setName(product.getName());
+			temp.setPhoto(product.getPhoto());
+			temp.setDescription(product.getDescription());
+			temp.setFeatured(product.getFeatured());
+			temp.setPrice(product.getPrice());
+			temp.setQuantity(product.getQuantity());
+			return new ResponseEntity<Product>(productService.save(temp), HttpStatus.OK);
 	}
 	
 }
