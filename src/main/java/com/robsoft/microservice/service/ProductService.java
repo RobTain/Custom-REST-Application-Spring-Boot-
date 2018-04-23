@@ -10,7 +10,8 @@ import com.robsoft.microservice.model.Product;
 
 public interface ProductService extends CrudRepository<Product, Integer> {
 	
-	@Query("from Product where name like %:keyword%")
-	public List<Product> search(@Param("keyword") String keyword);
+	// Search 
+//@Query("FROM PRODUCT WHERE NAME LIKE %:keyword%")
+//	public List<Product> search(@Param("keyword") String keyword);
 
 }

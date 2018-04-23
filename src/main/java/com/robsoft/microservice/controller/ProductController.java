@@ -20,19 +20,22 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+	// Get Entity List
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ResponseEntity<Iterable<Product>> findAll() {
 		return new ResponseEntity<Iterable<Product>>(productService.findAll(), HttpStatus.OK);
 	}
 	
+	// Get Single Entity
 	@RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Optional<Product>> findById(@PathVariable("id") int id) {
 		return new ResponseEntity<Optional<Product>>(productService.findById(id), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/products/search/{value}", method = RequestMethod.GET) 
-		public ResponseEntity<List<Product>> findKeyword(@PathVariable("value") String string) {
-			return new ResponseEntity<List<Product>>(productService.search(string), HttpStatus.OK);
-		}
-	
+	// Get Custom Entities by Keyword
+//	@RequestMapping(value="/products/search/{value}", method = RequestMethod.GET) 
+//		public ResponseEntity<List<Product>> findKeyword(@PathVariable("value") String string) {
+//			return new ResponseEntity<List<Product>>(productService.search(string), HttpStatus.OK);
+//		}
+//	
 }
