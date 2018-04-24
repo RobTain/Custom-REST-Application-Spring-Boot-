@@ -12,6 +12,5 @@ Exercises from "Learn Spring Boot with Real Apps" (Android Store) - @RestControl
 7. Use Text Plain/HTML in Spring Rest API in Spring Boot
 8. Use Parameters in Spring Rest API in Spring Boot
 9. Convert Object/List to/from JSON in Spring Rest API in Spring Boot
-10. Pass Data from Controller to View in Spring MVC in Spring Boot
 
 

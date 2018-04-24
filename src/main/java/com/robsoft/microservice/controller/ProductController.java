@@ -89,7 +89,7 @@ public class ProductController {
 	}
 	
 	// Convert Object/List to/from JSON in Spring Rest API in Spring Boot
-	@RequestMapping(value = "createWithoutDB", method = RequestMethod.GET)
+	@RequestMapping(value = "/createWithoutDB", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> createWithoutDB() {
 		List<Product> products = new ArrayList<Product>();
 		Product product = new Product();
@@ -99,14 +99,4 @@ public class ProductController {
 		products.add(product);
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
-	
-	
-	// Pass Data from Controller to View in Spring MVC in Spring Boot
-	@RequestMapping(method = RequestMethod.GET)
-	public String index(ModelMap modelmap) {
-		modelmap.put("name", "Robert");
-		modelmap.put("age", 1337);
-		return "demo/demo";
-	}
-
 } 
