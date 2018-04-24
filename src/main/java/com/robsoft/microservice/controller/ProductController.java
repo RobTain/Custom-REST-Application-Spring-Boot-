@@ -21,32 +21,32 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	// Get Entity List
+	// Get Entities List from Database with Spring Data JPA in Spring Boot
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ResponseEntity<Iterable<Product>> findAll() {
 		return new ResponseEntity<Iterable<Product>>(productService.findAll(), HttpStatus.OK);
 	}
 
-	// Get Single Entity
+	// Find Entity by Primary Key with Spring Data JPA in Spring Boot
 	@RequestMapping(value = "/products/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Optional<Product>> findById(@PathVariable("id") int id) {
 		return new ResponseEntity<Optional<Product>>(productService.findById(id), HttpStatus.OK);
 	}
 
-	// Get Custom Entities by Keyword
+	// Use Custom Query with Spring Data JPA in Spring Boot
 	@RequestMapping(value = "/products/search/name/{value}", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> findKeyword(@PathVariable("value") String string) {
 		return new ResponseEntity<List<Product>>(productService.search(string), HttpStatus.OK);
 	}
 
-	// Create Entity
+	// Create Entity with Spring Data JPA in Spring Boot
 	@RequestMapping(value = "/products", method = RequestMethod.POST) 
 	public ResponseEntity<Product> create(@RequestBody Product product) {
 		return new ResponseEntity<Product>(productService.save(product), HttpStatus.CREATED);
 	}
 
 	
-	// Update Entity
+	// Update Entity with Spring Data JPA in Spring Boot
 	@RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Product> update(@PathVariable("id") int id, @RequestBody Product product) {
 			Product temp = productService.findById(id).get();

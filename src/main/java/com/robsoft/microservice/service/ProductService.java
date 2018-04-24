@@ -10,7 +10,7 @@ import com.robsoft.microservice.model.Product;
 
 public interface ProductService extends CrudRepository<Product, Integer> {
 	
-	// Search by keyword in a certain column SELECT column1, column2 FROM table_name WHERE pattern
+	// Keyword search for a certain column | SELECT column1, column2 FROM table_name WHERE pattern
 	@Query("FROM Product WHERE name LIKE %:keyword%")
 	public List<Product> search(@Param("keyword") String keyword);
 
