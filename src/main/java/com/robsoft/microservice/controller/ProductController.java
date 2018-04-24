@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -58,5 +59,27 @@ public class ProductController {
 			temp.setQuantity(product.getQuantity());
 			return new ResponseEntity<Product>(productService.save(temp), HttpStatus.OK);
 	}
+	
+		
+	// Delete Entity with Spring Data JPA in Spring Boot
+	@RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
+	public HttpStatus deleteById(@PathVariable("id") int id) {
+		if (productService.existsById(id)) {
+			productService.deleteById(id);
+			return HttpStatus.OK;
+		} else {
+			return HttpStatus.NO_CONTENT;
+		}
+	}
+	
+	
+	// Use Text Plain in Spring Rest API in Spring Boot
+	@RequestMapping(value = "/helloworld", method = RequestMethod.GET)
+	public ResponseEntity<String> helloWorld() {
+		return new ResponseEntity<String>("HelloWorld", HttpStatus.OK);
+	}
+	
+	
+	// Use Text HTML in Spring Rest API in Spring Boot
 	
 }

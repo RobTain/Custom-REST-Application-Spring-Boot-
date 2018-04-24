@@ -9,9 +9,8 @@ Exercises from "Learn Spring Boot with Real Apps" (Android Store) - @RestControl
 4. Create Entity with Spring Data JPA in Spring Boot 
 5. Update Entity with Spring Data JPA in Spring Boot 
 6. Delete Entity with Spring Data JPA in Spring Boot
-7. Pass Data from Controller to View in Spring MVC in Spring Boot
-8. Use URL Parameters in Spring MVC in Spring Boot
-9. Use Forms in Spring MVC in Spring Boot
+7. Use Text Plain in Spring Rest API in Spring Boot
+8. Use Text HTML in Spring Rest API in Spring Boot
 
 
 
