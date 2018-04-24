@@ -1,5 +1,6 @@
 package com.robsoft.microservice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,6 +81,22 @@ public class ProductController {
 	}
 	
 	
+	// Use Parameters in Spring Rest API in Spring Boot
+	@RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
+	public ResponseEntity<String> greeting(@PathVariable("name") String name) {
+		return new ResponseEntity<String>("Hello " + name, HttpStatus.OK);
+	}
 	
-	
-}
+	// Convert Object/List to/from JSON in Spring Rest API in Spring Boot
+	@RequestMapping(value = "createWithoutDB", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> createWithoutDB() {
+		List<Product> products = new ArrayList<Product>();
+		Product product = new Product();
+		product.setName("Test");
+		product.setDescription("This is a test");
+		product.setPrice(1337);
+		products.add(product);
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+	}
+
+} 

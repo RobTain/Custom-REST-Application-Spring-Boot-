@@ -10,7 +10,8 @@ Exercises from "Learn Spring Boot with Real Apps" (Android Store) - @RestControl
 5. Update Entity with Spring Data JPA in Spring Boot 
 6. Delete Entity with Spring Data JPA in Spring Boot
 7. Use Text Plain/HTML in Spring Rest API in Spring Boot
-
+8. Use Parameters in Spring Rest API in Spring Boot
+9. Convert Object/List to/from JSON in Spring Rest API in Spring Boot
 
 
 
