@@ -73,13 +73,13 @@ public class ProductController {
 	}
 	
 	
-	// Use Text Plain in Spring Rest API in Spring Boot
+	// Use Text Plain/HTML in Spring Rest API in Spring Boot
 	@RequestMapping(value = "/helloworld", method = RequestMethod.GET)
 	public ResponseEntity<String> helloWorld() {
-		return new ResponseEntity<String>("HelloWorld", HttpStatus.OK);
+		return new ResponseEntity<String>("<b>HelloWorld</b>", HttpStatus.OK);
 	}
 	
 	
-	// Use Text HTML in Spring Rest API in Spring Boot
+	
 	
 }
