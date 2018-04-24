@@ -7,13 +7,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.robsoft.microservice.model.Product;
 import com.robsoft.microservice.service.ProductService;
 
@@ -97,6 +98,15 @@ public class ProductController {
 		product.setPrice(1337);
 		products.add(product);
 		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+	}
+	
+	
+	// Pass Data from Controller to View in Spring MVC in Spring Boot
+	@RequestMapping(method = RequestMethod.GET)
+	public String index(ModelMap modelmap) {
+		modelmap.put("name", "Robert");
+		modelmap.put("age", 1337);
+		return "demo/demo";
 	}
 
 } 
